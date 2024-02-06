@@ -130,3 +130,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.error-container {
+  align-items: center;
+  border-radius: 5px;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.error-message {
+  color: black;
+  font-size: 20px;
+}

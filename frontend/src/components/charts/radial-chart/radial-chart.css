@@ -1,0 +1,12 @@
+.radial-chart-container {
+  background-color: #fbfbfb;
+  grid-column: 7 / 10;
+  grid-row: 4 / 6;
+  padding: 0;
+}
+
+.pie-chart-container {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}

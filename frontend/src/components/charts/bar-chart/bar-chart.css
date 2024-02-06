@@ -1,5 +1,6 @@
 .barChart-component-container {
   align-items: center;
+  background-color: #fbfbfb;
   display: flex;
   grid-column: 1 / 11;
   grid-row: 2 / 4;
