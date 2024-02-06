@@ -4,13 +4,17 @@ import mockDatas from "./mockDatas";
 const getApiData = async (apiFunction, userId, shouldMock) => {
   try {
     if (shouldMock) {
-      return mockDatas[apiFunction];
+      const userIdFormatted = parseInt(userId);
+      const datasMocked = mockDatas[apiFunction].filter(
+        (data) => data.id === userIdFormatted || data.userId === userIdFormatted
+      );
+      return datasMocked[0];
     } else {
       const response = await apiService[apiFunction](userId);
       if (!response) {
         return null;
       } else {
-        return response;
+        return response.data;
       }
     }
   } catch (err) {

@@ -32,11 +32,11 @@ const Analytics = () => {
   useEffect(() => {
     getApiData("getUsersDatas", userId)
       .then((result) => {
-        if (result && result.data) {
+        if (result) {
           const datasFormatter = new DatasFormatter();
-          const fetchKeyData = result.data.keyData;
-          const scoreFormatted = datasFormatter.formatUserDatas(result.data);
-          setFirstname(result.data.userInfos.firstName);
+          const fetchKeyData = result.keyData;
+          const scoreFormatted = datasFormatter.formatUserDatas(result);
+          setFirstname(result.userInfos.firstName);
           setCalories(fetchKeyData.calorieCount);
           setProteins(fetchKeyData.proteinCount);
           setFat(fetchKeyData.lipidCount);
@@ -56,9 +56,9 @@ const Analytics = () => {
     const datasFormatter = new DatasFormatter();
     getApiData("getUsersActivity", userId)
       .then((result) => {
-        if (result && result.data) {
+        if (result) {
           const activityFormatted = datasFormatter.formatActivityDatas(
-            result.data.sessions
+            result.sessions
           );
           setActivity(activityFormatted.activitiesDatasFormatted);
           setMinWeight(activityFormatted.minKilos);
@@ -77,9 +77,9 @@ const Analytics = () => {
     const datasFormatter = new DatasFormatter();
     getApiData("getUsersPerformances", userId)
       .then((result) => {
-        if (result && result.data) {
+        if (result) {
           const activityFormatted = datasFormatter.formatPerformancesDatas(
-            result.data.data
+            result.data
           );
           setPerformances(activityFormatted);
         } else {
@@ -96,9 +96,9 @@ const Analytics = () => {
     const datasFormatter = new DatasFormatter();
     getApiData("getUsersAverages", userId)
       .then((result) => {
-        if (result && result.data) {
+        if (result) {
           const sessionsFormatted = datasFormatter.formatSessionsDatas(
-            result.data.sessions
+            result.sessions
           );
           setSessions(sessionsFormatted);
         } else {
